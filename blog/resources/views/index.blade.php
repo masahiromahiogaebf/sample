@@ -14,10 +14,18 @@
     <body>
     <h1>Blog name</h1>
     <div class = 'posts'>
-        <div class = post>
-            <h2 class = 'title'>title 1</h2>
-            <p class ='body'>This is a sample body</p>
+        @foreach ($posts as $post)
+        　　<div class = post>
+            　　<h2 class='title'>
+    <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+　　　　　　　　</h2>
+            　　<p class ='body'>{{ $post->body }}</p>
+        
         </div>
+        @endforeach
     </div>
+    <div class='paginate'>
+            {{ $posts->links() }}
+        </div>
     </body>
 </html>
