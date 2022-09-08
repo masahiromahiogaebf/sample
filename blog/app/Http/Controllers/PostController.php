@@ -20,6 +20,7 @@ public function index(Post $post)
 public function create()
 {
     return view('create');
+    
 }
 public function store(Post $post,PostRequest $request)
 {
@@ -30,6 +31,12 @@ public function store(Post $post,PostRequest $request)
 public function edit(Post $post)
 {
     return view('edit')->with(['post' => $post]);
+}
+
+public function destroy(Post $post)
+{
+    $post->delete();
+    return redirect('/');
 }
     }
     
